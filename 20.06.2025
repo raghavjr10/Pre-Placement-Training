@@ -1,0 +1,181 @@
+1 - String Reverse
+Program:
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        
+        Scanner sc = new Scanner(System.in);
+        String A = sc.next();
+        String reversed = new StringBuilder(A).reverse().toString();
+        if (A.equals(reversed)) {
+            System.out.println("Yes");
+        } else {
+            System.out.println("No");
+        }
+    }
+}
+===================================================================
+2 - Counting the Sequence
+Program:
+import java.util.Scanner;
+
+public class CountAndSaySequence {
+
+    public static String countAndSay(int n) {
+        if (n <= 0) return "";
+
+        String result = "1";
+
+        for (int i = 1; i < n; i++) {
+            result = buildNext(result);
+        }
+
+        return result;
+    }
+
+    private static String buildNext(String s) {
+        StringBuilder sb = new StringBuilder();
+
+        int count = 1;
+        char prevChar = s.charAt(0);
+
+        for (int i = 1; i < s.length(); i++) {
+            char currentChar = s.charAt(i);
+            if (currentChar == prevChar) {
+                count++;
+            } else {
+                sb.append(count).append(prevChar);
+                count = 1;
+                prevChar = currentChar;
+            }
+        }
+
+        sb.append(count).append(prevChar);
+
+        return sb.toString();
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter the value of n: ");
+        int n = sc.nextInt();
+
+        String result = countAndSay(n);
+        System.out.println("Count-and-say term " + n + ": " + result);
+    }
+}
+===========================================================================
+3 - Length of the last word:
+Program:
+import java.util.Scanner;
+public class LastWordLength {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter a string:");
+        String input = sc.nextLine().trim(); 
+        if (input.isEmpty()) {
+            System.out.println("Length of last word: 0");
+            return;
+        }
+        String[] words = input.split("\\s+"); 
+        String lastWord = words[words.length - 1];
+        System.out.println("Length of last word: " + lastWord.length());
+    }
+}
+=========================================================================
+4 - Finding odd or even:
+Program:
+import java.util.Scanner;
+public class EvenOdd {
+    public static void main(String[] args) {
+        Scanner number = new Scanner(System.in);
+        System.out.print("Enter a number: ");
+        int num = number.nextInt();
+        if(num % 2 == 0)
+            System.out.println(num + " is even");
+        else
+            System.out.println(num + " is odd");
+    }
+}
+=========================================================================
+5 - Anagram :
+Program:
+class Solution {
+    public boolean isAnagram(String s, String t) {
+        if (s.length() != t.length()) {
+            return false;
+        }
+        int[] freq = new int[26];
+        for (int i = 0; i < s.length(); i++) {
+            freq[s.charAt(i) - 'a']++;
+            freq[t.charAt(i) - 'a']--;
+        }      
+        for (int i = 0; i < freq.length; i++) {
+            if (freq[i] != 0) {
+                return false;
+            }
+        }    
+        return true;
+    }
+}
+==========================================================================
+6 - Triangle Pattern:
+Program:
+import java.util.*;
+public class Main {
+    public static void printPattern(int n)
+    {
+        int i, j;
+        for (i = 0; i < n; i++) {
+            for (j = n - i; j > 1; j--) {
+                System.out.print(" ");
+            }
+            for (j = 0; j <= i; j++) {
+                System.out.print("* ");
+            }
+            System.out.println();
+        }
+    }
+    public static void main(String args[])
+    {
+        int n = 3;
+        printPattern(n);
+    }
+}
+==================================================================
+7 - Leap year or not:
+Program:
+import java.util.Scanner;
+public class LeapYear {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int year = sc.nextInt();
+        if ((year % 4 == 0 && year % 100 != 0) || year % 400 == 0)
+            System.out.println("Leap Year");
+        else
+            System.out.println("Not a Leap Year");
+    }
+}
+===============================================================
+8 - Remove Duplicate:
+Program:
+class Solution {
+    public int removeDuplicates(int[] nums) {
+        if (nums.length == 0) return 0;
+
+        int k = 1; 
+
+        for (int i = 1; i < nums.length; i++) {
+            if (nums[i] != nums[k - 1]) {
+                nums[k] = nums[i]; 
+                k++;
+            }
+        }
+
+        return k; 
+    }
+}
+===================================================================
