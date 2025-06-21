@@ -1,0 +1,98 @@
+1 - Grade Calculator:
+Program:
+public class GradeCalculator {
+    public static char calculateGrade(int score) {
+        if (score >= 90) {
+            return 'A';
+        } else if (score >= 80) {
+            return 'B';
+        } else if (score >= 70) {
+            return 'C';
+        } else if (score >= 60) {
+            return 'D';
+        } else {
+            return 'F';
+        }
+    }
+    public static void main(String[] args) {
+        java.util.Scanner scanner = new java.util.Scanner(System.in);
+        System.out.print("Enter the score: ");
+        int score = scanner.nextInt();
+        System.out.println("Grade: " + calculateGrade(score));
+        scanner.close();
+    }
+}
+===================================================================
+2 - Leap year or not:
+Program:
+public class LeapYearChecker {
+    public static boolean isLeapYear(int year) {
+        return (year % 4 == 0 && year % 100 != 0) || (year % 400 == 0);
+    }
+
+    public static void main(String[] args) {
+        java.util.Scanner scanner = new java.util.Scanner(System.in);
+        System.out.print("Enter a year: ");
+        int year = scanner.nextInt();
+        System.out.println((isLeapYear(year)) ? year + " is a leap year" : year + " is not a leap year");
+        scanner.close();
+    }
+}
+=========================================================================
+3 - Pattern:
+Program:
+public class PatternPrinter {
+    public static void printPattern(int n) {
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= i; j++) {
+                System.out.print("*");
+            }
+            System.out.println();
+        }
+    }
+    public static void main(String[] args) {
+        java.util.Scanner scanner = new java.util.Scanner(System.in);
+        System.out.print("Enter number of rows: ");
+        int n = scanner.nextInt();
+        printPattern(n);
+        scanner.close();
+    }
+}
+==================================================================================
+4 - Temperature Conveter:
+Program:
+public class TemperatureConverter {
+    public static double celsiusToFahrenheit(double celsius) {
+        return (celsius * 9 / 5) + 32;
+    }
+
+    public static double fahrenheitToCelsius(double fahrenheit) {
+        return (fahrenheit - 32) * 5 / 9;
+    }
+
+    public static void main(String[] args) {
+        java.util.Scanner scanner = new java.util.Scanner(System.in);
+        System.out.print("Enter temperature in Celsius: ");
+        double celsius = scanner.nextDouble();
+        System.out.println("Fahrenheit equivalent: " + celsiusToFahrenheit(celsius));
+        System.out.print("Enter temperature in Fahrenheit: ");
+        double fahrenheit = scanner.nextDouble();
+        System.out.println("Celsius equivalent: " + fahrenheitToCelsius(fahrenheit));
+        scanner.close();
+    }
+}
+======================================================================
+5 - Upercase and Lowercase:
+Program:
+public class CountCase {
+    public static void main(String[] args) {
+        String str = "Hello JAVA";
+        int upper = 0, lower = 0;
+        for (char ch : str.toCharArray()) {
+            if (Character.isUpperCase(ch)) upper++;
+            else if (Character.isLowerCase(ch)) lower++;
+        }
+        System.out.println("Upper: " + upper + ", Lower: " + lower);
+    }
+}
+=========================================================================
