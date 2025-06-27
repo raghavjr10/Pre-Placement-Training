@@ -1,0 +1,70 @@
+1 - Pascals Triangle;
+Program:
+def pascals_triangle(n):
+    result = []
+    for i in range(n):
+        row = [1]*(i+1)
+        for j in range(1, i):
+            row[j] = result[i-1][j-1] + result[i-1][j]
+        result.append(row)
+    return result
+==============================================
+2 - Merge sorted list:
+Program:
+def merge_sorted_lists(a, b):
+    result = []
+    i = j = 0
+    while i < len(a) and j < len(b):
+        if a[i] < b[j]:
+            result.append(a[i])
+            i += 1
+        else:
+            result.append(b[j])
+            j += 1
+    result += a[i:] + b[j:]
+    return result
+====================================================
+3 - Operator Program:
+a = float(input("Enter first number: "))
+b = float(input("Enter second number: "))
+op = input("Enter operation (+ - * /): ")
+
+if op == '+': print(a + b)
+elif op == '-': print(a - b)
+elif op == '*': print(a * b)
+elif op == '/': print(a / b if b != 0 else "Division by zero!")
+else: print("Invalid operator")
+=========================================================
+4 - Length of the Array:
+Program:
+arr = [5, 3, 8, 4, 2]
+n = len(arr)
+for i in range(n):
+    for j in range(0, n-i-1):
+        if arr[j] > arr[j+1]:
+            arr[j], arr[j+1] = arr[j+1], arr[j]
+print("Sorted:", arr)
+=================================================
+5 - Detect Dupliates:
+Program:
+lst = [1, 2, 3, 2, 4, 5, 1]
+duplicates = set([x for x in lst if lst.count(x) > 1])
+print("Duplicates:", duplicates)
+========================================================
+6 - Create Rectangle:
+Program:
+class Rectangle:
+    def __init__(self, l, w):
+        self.length = l
+        self.width = w
+
+    def area(self):
+        return self.length * self.width
+
+    def perimeter(self):
+        return 2 * (self.length + self.width)
+
+r = Rectangle(10, 5)
+print("Area:", r.area())
+print("Perimeter:", r.perimeter())
+=============================================================
