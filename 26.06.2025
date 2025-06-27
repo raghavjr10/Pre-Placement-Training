@@ -1,1 +1,64 @@
-1 - 
+1 - Odd or Even:
+Program:
+def checkOddEven(x):
+    if x % 2 == 0:
+        return True  
+    else:
+        return False  
+================================================
+2 - Find missing number:
+Program:
+class Solution:
+    def missingNum(self, arr):
+        n = len(arr) + 1  
+        total_sum = n * (n + 1) // 2
+        actual_sum = sum(arr)
+        return total_sum - actual_sum
+====================================================
+3 - Second Greatest Number:
+Program:
+class Solution:
+    def getSecondLargest(self, arr):
+        first = second = -1
+        
+        for num in arr:
+            if num > first:
+                second = first
+                first = num
+            elif num > second and num != first:
+                second = num
+        
+        return second
+===================================================
+4 - Find Duplicates:
+Program:
+class Solution:
+    def findDuplicates(self, arr):
+        freq = {}
+        result = []
+        
+        for num in arr:
+            freq[num] = freq.get(num, 0) + 1
+        
+        for num in freq:
+            if freq[num] > 1:
+                result.append(num)
+        
+        result.sort()  
+        return result
+=====================================================
+5 - Convert Roman To integer:
+Program:
+def roman_to_int(s):
+    roman = {'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000}
+    total = 0
+    prev = 0
+    for ch in reversed(s):
+        curr = roman[ch]
+        if curr < prev:
+            total -= curr
+        else:
+            total += curr
+        prev = curr
+    return total
+============================================================
